@@ -29,6 +29,7 @@ giphyButtonGenerator()
 
 //delegated event
 $(document).on("click",".data-button",function(){
+    
     console.log("listening")
     
     var buttonText = '';
@@ -40,6 +41,7 @@ $(document).on("click",".data-button",function(){
         url:queryURL,
         method:'GET',
     }).then(function(response){
+        
         console.log(response);
         
         var results = response.data;
@@ -51,18 +53,18 @@ $(document).on("click",".data-button",function(){
 
         for(var i = 0; i < results.length; i++){
             var scienceDiv = $('div');
-            var p = $('<p class: rating>').text('Rating '+results[i].rating);
-            var scienceImage = $('<img class="size">');
+            var p = $('<p class= rating>').text('Rating '+results[i].rating);
+            var scienceImage = $('<img class="gifImage">');
             scienceImage.attr('src',results[i].images.fixed_height.url);
-            scienceImage.attr('still',results[i].images.fixed_height.url);
-            scienceImage.attr('animated',results[i].images.fixed_height.url);
+            scienceImage.attr('still');
+            scienceImage.attr('animated');
 
             //creat a class on the image so it is clickable
         
-        //store the animated img in an attr called animated
-        //store the still image in an attr called still
-        //use those 2 attr to switch in and out of the source attr
-        //create a state attr and set it to still orginally
+            //store the animated img in an attr called animated
+            //store the still image in an attr called still
+            //use those 2 attr to switch in and out of the source attr
+            //create a state attr and set it to still orginally
 
             scienceDiv.append(p);
             scienceDiv.append(scienceImage);
